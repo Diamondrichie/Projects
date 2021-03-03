@@ -15,13 +15,15 @@ class Information:
 
         for info in self.get_all:
             self.new.append(info.text)
-        self.renew = [all.replace('\t', '')for all in self.new]
-        self.final =  [ren.replace('\n', '')for ren in self.renew]
-        self.data = [ren.replace('View profile', '')for ren in self.renew]
+        
+        self.renew = [all.replace('\t', '') for all in self.new]
+        self.final =  [ren.replace('\n', '') for ren in self.renew]
+        self.data = [f.replace('View profile', '') for f in self.final]
+        print(self.data)
 
-        textfile = open ('info.txt', 'w')
-        file = ','.join(self.data)
+        textfile = open ('info.csv', 'w')
+        file = '\n'.join(self.data)
         textfile.write(file)
         textfile.close()
 
-Information("Maranda Curtis").Name_Info()
+Information("Richie ALexander").Name_Info()
